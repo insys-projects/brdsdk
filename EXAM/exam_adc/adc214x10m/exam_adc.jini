@@ -1,0 +1,472 @@
+<?xml version='1.0' encoding='windows-1251'?>
+<!--
+	Базовый модуль AMBPCX, Субмодуль  ADM214x10M, 
+	ADM214x10MX
+-->
+<settings>
+<!-- [Options] -->
+<!--
+	Имя службы АЦП
+-->
+	<param type="list" name="AdcServiceName">
+		<item val="ADC214X10M"/>
+	</param>
+<!--
+	файл прошивки ПЛИС для БМ AMBPCX
+-->
+	<param type="list" name="PldFileName">
+		<item val="ambpcx_v10_adm214x10mx.hex"/>
+	</param>
+<!--
+	Когда загружать прошивкy
+-->
+	<param type="list" name="isPldLoadAlways">
+		<item val="0" descr="если ПЛИС не загружена"/>
+		<item val="1" descr="всегда при запуске"/>
+	</param>
+<!--
+	BusMasterEnable
+-->
+	<param type="list" name="BusMasterEnable">
+		<item val="1" descr="основной режим"/>
+		<item val="0" descr="для отладки"/>
+	</param>
+<!--
+	Циклический режим
+-->
+	<param type="list" name="Cycle">
+		<item val="0" descr="однократный режим"/>
+		<item val="1" descr="циклический режим"/>
+	</param>
+<!--
+	Для AMBPCD
+-->
+	<param type="list" name="DaqIntoMemory">
+		<item val="0" descr="сбор данных в FIFO"/>
+		<item val="1" descr="сбор данных в DRAM (AMBPCD)"/>
+	</param>
+<!--
+	Запись в файл data.bin
+-->
+	<param type="list" name="IsWriteFile">
+		<item val="0" descr="нет записи в data.bin"/>
+		<item val="1" descr="запись для ISVI"/>
+		<item val="2" descr="запись как есть"/>
+	</param>
+<!--
+	Число собираемых отсчётов на канал
+-->
+	<param inc="4096" type="spin-int" min="0" name="SamplesPerChannel"/>
+<!--
+	Тип памяти для стрима
+-->
+	<param type="list" name="IsSystemMemory">
+		<item val="0" descr="разрывные блоки для стрима"/>
+		<item val="1" descr="непрерывные блоки для стрима"/>
+	</param>
+<!-- [device0_adc1612x1m0] -->
+<!--
+	Режим МАСТЕР
+-->
+	<param type="list" name="MasterMode">
+		<item val="1" descr="всегда мастер"/>
+	</param>
+<!--
+	Маска каналов
+-->
+	<param type="list" name="ChannelMask">
+		<item val="0x1" descr="1 канал"/>
+		<item val="0x3" descr="2 канала"/>
+		<item val="0x7" descr="3 канала"/>
+		<item val="0xF" descr="4 канала"/>
+		<item val="0xFF" descr="8 каналов"/>
+		<item val="0xFFFF" descr="16 каналов"/>
+		<item val="0xFFFFFFFF" descr="16 каналов (10MX)"/>
+	</param>
+<!--
+	Источник тактовой частоты
+-->
+	<param type="list" name="ClockSource">
+		<item val="0" descr="системный генератор"/>
+		<item val="1" descr="генератор 60 МГц"/>
+		<item val="2" descr="генератор 50 МГц"/>
+		<item val="3" descr="генератор на разъеме SDX"/>
+	</param>
+<!--
+	Значения источника тактовой частоты на разъеме SDX (Гц)
+-->
+	<param name="BaseExternalClockValue"/>
+<!--
+	Частота дискретизации (Гц)
+-->
+	<param inc="100000" type="spin-double" min="0" name="SamplingRate" max="10000000"/>
+<!--
+	Смещения нуля для АЦП0 (В)
+-->
+	<param inc="0.1" type="spin-double" min="-2.5" name="Bias0" max="2.5"/>
+<!--
+	Смещения нуля для АЦП1 (В)
+-->
+	<param inc="0.1" type="spin-double" min="-2.5" name="Bias1" max="2.5"/>
+<!--
+	Кодировка данных
+-->
+	<param type="list" name="DataFormat">
+		<item val="0" descr="16 бит"/>
+		<item val="1" descr="8 бит"/>
+	</param>
+<!--
+	Шкалы преобразования канала 0
+-->
+	<param type="list" name="InputRange0">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 1
+-->
+	<param type="list" name="InputRange1">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 2
+-->
+	<param type="list" name="InputRange2">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 3
+-->
+	<param type="list" name="InputRange3">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 4
+-->
+	<param type="list" name="InputRange4">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 5
+-->
+	<param type="list" name="InputRange5">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 6
+-->
+	<param type="list" name="InputRange6">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 7
+-->
+	<param type="list" name="InputRange7">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 8
+-->
+	<param type="list" name="InputRange8">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 9
+-->
+	<param type="list" name="InputRange9">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 10
+-->
+	<param type="list" name="InputRange10">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 11
+-->
+	<param type="list" name="InputRange11">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 12
+-->
+	<param type="list" name="InputRange12">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 13
+-->
+	<param type="list" name="InputRange13">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 14
+-->
+	<param type="list" name="InputRange14">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 15
+-->
+	<param type="list" name="InputRange15">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 16
+-->
+	<param type="list" name="InputRange16">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 17
+-->
+	<param type="list" name="InputRange17">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 18
+-->
+	<param type="list" name="InputRange18">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 19
+-->
+	<param type="list" name="InputRange19">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 20
+-->
+	<param type="list" name="InputRange20">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 21
+-->
+	<param type="list" name="InputRange21">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 22
+-->
+	<param type="list" name="InputRange22">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 23
+-->
+	<param type="list" name="InputRange23">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 24
+-->
+	<param type="list" name="InputRange24">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 25
+-->
+	<param type="list" name="InputRange25">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 26
+-->
+	<param type="list" name="InputRange26">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 27
+-->
+	<param type="list" name="InputRange27">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 28
+-->
+	<param type="list" name="InputRange28">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 29
+-->
+	<param type="list" name="InputRange29">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 30
+-->
+	<param type="list" name="InputRange30">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Шкалы преобразования канала 31
+-->
+	<param type="list" name="InputRange31">
+		<item val="2.5"/>
+		<item val="1.25"/>
+		<item val="0.625"/>
+		<item val="0.3125"/>
+	</param>
+<!--
+	Источник старта на базовом модуле
+-->
+	<param type="list" name="StartBaseSource">
+		<item val="0" descr="программный"/>
+		<item val="1" descr="компаратор 0"/>
+		<item val="2" descr="компаратор 1"/>
+		<item val="10" descr="DDS"/>
+	</param>
+<!--
+	Инверсия базового источника старта
+-->
+	<param type="list" name="StartBaseInverting">
+		<item val="0" descr=""/>
+		<item val="1" descr="инверсия старта"/>
+	</param>
+<!--
+	
+-->
+	<param type="list" name="">
+		<item val="" descr=""/>
+	</param>
+<!--
+	Тип старта
+-->
+	<param type="list" name="StartMode">
+		<item val="0" descr="потенциальный старт"/>
+		<item val="1" descr="триггерный старт"/>
+	</param>
+<!--
+	Источник останова на базовом модуле
+-->
+	<param type="list" name="StopSource">
+		<item val="0" descr="всегда программный останов"/>
+	</param>
+<!--
+	Инверсия базового источника останова
+-->
+	<param type="list" name="StopInverting">
+		<item val="0" descr=""/>
+		<item val="1" descr="инверсия останова"/>
+	</param>
+<!--
+	
+-->
+	<param type="list" name="ReStart">
+		<item val="0" descr="всегда 0"/>
+	</param>
+<!--
+	Порог компаратора 1 при старте от разъема SDX (Вольт)
+-->
+	<param inc="0.1" type="spin-double" min="-2.5" name="ComparatorThresholdSDX" max="2.5"/>
+	<curprog cmdline="exam_adc.exe"/>
+
+<!--
+	Порог компаратора 0 при старте от входа EXTST (Вольт)
+-->
+	<param inc="0.1" type="spin-double" min="-2.5" name="ComparatorThresholdSUBM" max="2.5"/>
+	<curprog cmdline="exam_adc.exe"/>
+
+<!--
+	Порог компаратора 0 при старте от канала 0 (Вольт)
+-->
+	<param inc="0.1" type="spin-double" min="-2.5" name="ComparatorThresholdChan0" max="2.5"/>
+	<curprog cmdline="exam_adc.exe"/>
+
+</settings>

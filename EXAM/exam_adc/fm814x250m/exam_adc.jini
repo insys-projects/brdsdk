@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='windows-1251'?>
+<!--
+	Субмодуль FM814x250M файл exam.jini 
+-->
+<settings>
+<!--
+	Параметры работы АЦП
+-->
+	<group title="Параметры работы АЦП" open="1" color="255,255,191">
+		<param title="Маска каналов" type="list" name="ChannelMask">
+			<item val="0x1" descr="канал 0"/>
+			<item val="0x2" descr="канал 1"/>
+			<item val="0x4" descr="канал 2"/>
+			<item val="0x8" descr="канал 3"/>
+			<item val="0x10" descr="канал 4"/>
+			<item val="0x20" descr="канал 5"/>
+			<item val="0x40" descr="канал 6"/>
+			<item val="0x80" descr="канал 7"/>
+			<item val="0x3" descr="каналы 0 и 1"/>
+			<item val="0xF" descr="каналы 0-3"/>
+			<item val="0xFF" descr="каналы 0-7"/>
+		</param>
+		<param title="Тактовый генератор" type="list" name="ClockSource">
+			<item val="0" descr="отключен"/>
+			<item val="1" descr="внутренний"/>
+			<item val="0x81" descr="внешний"/>
+		</param>
+		<param title="Частота внешн. генератора (Гц)" default="200000000" inc="1000000" type="spin-double" min="0" name="ExternalClockValue"/>
+		<param title="Частота от базмодуля (Гц)" default="200000000" inc="1000000" type="spin-double" min="0" name="BaseClockValue"/>
+		<param title="Частота дискретизации (Гц)" default="200000000" inc="1000000" type="spin-double" min="10000000" name="SamplingRate"/>
+		<param title="Инверсия внешнего такта" type="list" name="ClockInv">
+			<item val="0" descr="выключена"/>
+			<item val="1" descr="включена"/>
+		</param>
+		<param title="Формат данных" type="list" name="DataFormat">
+			<item val="0" descr="16 бит"/>
+			<item val="1" descr="8 бит"/>
+		</param>
+		<param title="Порог внешнего такта (В)" default="0.0" type="spin-double" min="-2.5" name="ExternalClockThreshold" max="+2.5"/>
+	</group>
+<!--
+	Смещения нуля каналов 0-7
+-->
+	<group title="Каналы 0-7: смещения нуля" open="1" color="191,191,255">
+		<param title="Смещение нуля канала 0 (%)" default="0.0" inc="1" type="spin-double" min="-39" name="Bias0" max="52"/>
+		<param title="Смещение нуля канала 1 (%)" default="0.0" inc="1" type="spin-double" min="-39" name="Bias1" max="52"/>
+		<param title="Смещение нуля канала 2 (%)" default="0.0" inc="1" type="spin-double" min="-39" name="Bias2" max="52"/>
+		<param title="Смещение нуля канала 3 (%)" default="0.0" inc="1" type="spin-double" min="-39" name="Bias3" max="52"/>
+		<param title="Смещение нуля канала 4 (%)" default="0.0" inc="1" type="spin-double" min="-39" name="Bias4" max="52"/>
+		<param title="Смещение нуля канала 5 (%)" default="0.0" inc="1" type="spin-double" min="-39" name="Bias5" max="52"/>
+		<param title="Смещение нуля канала 6 (%)" default="0.0" inc="1" type="spin-double" min="-39" name="Bias6" max="52"/>
+		<param title="Смещение нуля канала 7 (%)" default="0.0" inc="1" type="spin-double" min="-39" name="Bias7" max="52"/>
+	</group>
+<!--
+	Параметры субмодуля WB HF
+-->
+	<group title="Параметры субмодуля WB HF" open="1" color="191,199,255">
+		<param title="Коэф. передачи канала 0 (дБ)" type="spin-int" min="-4" name="Gain0" max="20"/>
+		<param title="Коэф. передачи канала 1 (дБ)" type="spin-int" min="-4" name="Gain1" max="20"/>
+	</group>
+<!--
+	Прочие параметры из [device0_adc214x400m0]
+-->
+	<group title="Прочие параметры из [device0_adc214x400m0]" open="0" color="191,255,191">
+		<param type="list" name="MasterMode">
+			<item val="1" descr="всегда 1"/>
+		</param>
+		<param type="list" name="ReStart">
+			<item val="0" descr="всегда 0"/>
+		</param>
+		<param title="Включение претригера" type="list" name="IsPreTriggerMode">
+			<item val="0" descr="выключен"/>
+			<item val="1" descr="включен"/>
+		</param>
+		<param title="Количество отсчетов претригера" default="1" inc="1" type="spin-int" min="1" name="PreTriggerSamples"/>
+		<param type="list" name="CurrentDouble">
+			<item val="1" descr="всегда 1"/>
+		</param>
+	</group>
+<!--
+	Параметры из [Option]
+-->
+	<group title="Параметры из [Option]" open="0" color="255,191,191">
+		<param title="Имя службы" name="AdcServiceName"/>
+		<param title="Имя файла прошивки" type="file" name="PldFileName"/>
+		<param title="Режим загрузки прошивки" type="list" name="isPldLoadAlways">
+			<item val="0" descr="загружать, если не загружена"/>
+			<item val="1" descr="загружать всегда при запуске"/>
+		</param>
+		<param title="Разрешение BusMaster" type="list" name="BusMasterEnable">
+			<item val="1" descr="всегда 1"/>
+		</param>
+		<param title="Циклический режим" type="list" name="Cycle">
+			<item val="1" descr="всегда 1"/>
+		</param>
+		<param title="Использование ОЗУ" type="list" name="DaqIntoMemory">
+			<item val="0" descr="всегда 0"/>
+		</param>
+		<param title="Формирование data.bin" type="list" name="IsWriteFile">
+			<item val="1" descr="всегда 1"/>
+		</param>
+		<param title="Количество отсчетов" type="list" name="SamplesPerChannel">
+			<item val="64"/>
+			<item val="128"/>
+			<item val="256"/>
+			<item val="512"/>
+			<item val="1024"/>
+			<item val="2048"/>
+			<item val="4096"/>
+			<item val="8192"/>
+			<item val="16384"/>
+			<item val="32768"/>
+			<item val="65536"/>
+			<item val="131072"/>
+		</param>
+		<param title="Количество отсчетов при сборе в ОЗУ" type="list" name="MemSamplesPerChan">
+			<item val="64"/>
+			<item val="128"/>
+			<item val="256"/>
+			<item val="512"/>
+			<item val="1024"/>
+			<item val="2048"/>
+			<item val="4096"/>
+			<item val="8192"/>
+			<item val="16384"/>
+			<item val="32768"/>
+			<item val="65536"/>
+			<item val="131072"/>
+		</param>
+		<param title="Составной буфер" type="list" name="IsSystemMemory">
+			<item val="0" descr="в пользовательской памяти"/>
+			<item val="1" descr="в системной памяти"/>
+		</param>
+	</group>
+<!--
+	Прямая запись в файл
+-->
+	<group title="Прямая запись в файл" open="0" color="255,191,191">
+		<param title="Имя файла" name="DirFileName"/>
+		<param title="Размер буфера" type="list" name="DirFileBufSize">
+			<item val="256"/>
+			<item val="512"/>
+			<item val="1024"/>
+			<item val="2048"/>
+			<item val="4096"/>
+			<item val="8192"/>
+			<item val="16384"/>
+			<item val="32768"/>
+			<item val="65536"/>
+			<item val="131072"/>
+		</param>
+		<param title="Количество буферов" default="1" inc="1" type="spin-int" min="1" name="DirNumBufWrite"/>
+	</group>
+<!--
+	Стартовая синхронизация на базовом модуле
+-->
+	<group title="Стартовая синхронизация на базовом модуле" open="0" color="255,191,255">
+		<param title="Источник старта на базовом модуле" type="list" name="StartBaseSource">
+			<item val="0" descr="программный"/>
+			<item val="7" descr="субмодуль"/>
+		</param>
+		<param title="Инверсия старта на базовом модуле" type="list" name="StartBaseInverting">
+			<item val="0" descr="нет"/>
+			<item val="1" descr="есть"/>
+		</param>
+		<param title="Режим старта" type="list" name="StartMode">
+			<item val="0" descr="потенциальный"/>
+			<item val="1" descr="триггерный"/>
+		</param>
+		<param title="Источник останова" type="list" name="StopSource">
+			<item val="0" descr="всегда 0"/>
+		</param>
+		<param title="Инверсия останова" type="list" name="StopInverting">
+			<item val="0" descr="нет"/>
+			<item val="1" descr="есть"/>
+		</param>
+	</group>
+<!--
+	Стартовая синхронизация на субмодуле
+-->
+	<group title="Стартовая синхронизация на субмодуле" open="0" color="255,191,255">
+		<param title="Источник старта на субмодуле" type="list" name="StartSource">
+			<item val="0" descr="канал IN0"/>
+			<item val="2" descr="внешний"/>
+			<item val="3" descr="программный"/>
+		</param>
+		<param title="Инверсия старта на субмодуле" type="list" name="StartInverting">
+			<item val="0" descr="нет"/>
+			<item val="1" descr="есть"/>
+		</param>
+		<param title="Уровень старта (В)" default="0.0" type="spin-double" min="-5" name="StartLevel" max="5"/>
+		<param title="Порог старта от канала 0 (В)" default="0.0" type="spin-double" name="ComparatorThresholdCHAN0"/>
+		<param title="Порог старта от START (В)" default="0.0" type="spin-double" name="ComparatorThresholdSTART"/>
+	</group>
+<!--
+	Управление работой АИКС
+-->
+	<group title="Управление работой АИКС" open="1" color="191,255,255">
+		<param title="Комментарий" name="COMMENT"/>
+		<param title="Пояснение" name="AIKSINFO"/>
+		<param title="Номер программы examadc" type="list" name="CMDLINENO">
+			<item val="0" descr="основная"/>
+			<item val="2" descr="номер 2"/>
+			<item val="3" descr="номер 3"/>
+			<item val="4" descr="номер 4"/>
+		</param>
+		<param title="Автосмещение нуля" type="list" name="BIASAUTO">
+			<item val="0" descr="выключено"/>
+			<item val="1" descr="от пред. режима"/>
+			<item val="ключевоеслово" descr="включено"/>
+		</param>
+		<param title="Размер буфера автосмещения" type="list" name="BIASAUTOSIZE">
+			<item val="64"/>
+			<item val="128"/>
+			<item val="256"/>
+			<item val="512"/>
+			<item val="1024"/>
+			<item val="2048"/>
+			<item val="4096"/>
+			<item val="8192"/>
+			<item val="16384"/>
+			<item val="32768"/>
+			<item val="65536"/>
+			<item val="131072"/>
+		</param>
+	</group>
+	<curprog cmdline="exam_adc.exe"/>
+</settings>

@@ -1,0 +1,444 @@
+<?xml version='1.0' encoding='windows-1251'?>
+<!--
+	Субмодуль FM814x125M файл exam.jini 
+-->
+<settings>
+
+<!--
+	Параметры работы АЦП
+-->
+<group title="Параметры работы АЦП" open="1" color="255,255,191">
+	<param title="Маска каналов" name="ChannelMask" type="list">
+		<item val="0x1" descr="канал 0"/>
+		<item val="0x2" descr="канал 1"/>
+		<item val="0x4" descr="канал 2"/>
+		<item val="0x8" descr="канал 3"/>
+		<item val="0x10" descr="канал 4"/>
+		<item val="0x20" descr="канал 5"/>
+		<item val="0x40" descr="канал 6"/>
+		<item val="0x80" descr="канал 7"/>
+		<item val="0x3" descr="каналы 0 и 1"/>
+		<item val="0xF" descr="каналы 0-3"/>
+		<item val="0xFF" descr="каналы 0-7"/>
+		<item val="0xFFFF" descr="каналы 0-15"/>
+	</param>
+	<param title="Тактовый генератор" name="ClockSource" type="list">
+		<item val="0" descr="от сист. шины"/>
+		<item val="1" descr="внутренний gen0"/>
+		<item val="2" descr="внутренний gen1"/>
+		<item val="3" descr="внешний от ЫВЧ"/>
+	</param>
+	<param title="Частота внешн. генератора (Гц)" name="BaseExternalClockValue" inc="1000000" type="spin-double" min="0"/>
+	<param title="Частота дискретизации (Гц)" name="SamplingRate" inc="1000000" type="spin-double" min="0" max="128000"/>
+	<param title="Формат данных" name="DataFormat" type="list">
+		<item val="0" descr="16 бит"/>
+		<item val="1" descr="8 бит"/>
+		<item val="4" descr="24 бит"/>
+	</param>
+	<param title="Порог старта от канала 0 (В)" name="ComparatorThresholdCHAN0" default="0.0" type="spin-double"/>
+	<param title="Порог старта от SDX (В)" name="ComparatorThresholdSDX" default="0.0" type="spin-double"/>
+	<param title="Тестовый сигнал" name="TestSource" type="list">
+		<item val="0" descr="земля"/>
+		<item val="1" descr="дифф ЦАП0"/>
+		<item val="2" descr="синф ЦАП0"/>
+		<item val="3" descr="+2.5 В"/>
+	</param>
+</group>
+
+<!--
+	Коэффициенты передачи каналов 0-15
+-->
+<group title="Каналы 0-15: коэффициенты передачи" open="1" color="191,255,255">
+	<param title="Коэффициент канала 0" name="Gain0" type="list">
+		<item val="0.5"/>
+		<item val="1.0"/>
+		<item val="2.0"/>
+		<item val="4.0"/>
+		<item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 1" name="Gain1" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 2" name="Gain2" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 3" name="Gain3" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 4" name="Gain4" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 5" name="Gain5" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 6" name="Gain6" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 7" name="Gain7" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 8" name="Gain8" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 9" name="Gain9" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 10" name="Gain10" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 11" name="Gain11" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 12" name="Gain12" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 13" name="Gain13" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 14" name="Gain14" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+	<param title="Коэффициент канала 15" name="Gain15" type="list">
+	   <item val="0.5"/>
+	   <item val="1.0"/>
+	   <item val="2.0"/>
+	   <item val="4.0"/>
+	   <item val="8.0"/>
+	</param>
+</group>
+
+<!--
+	Смещения нуля каналов 0-15
+-->
+<group title="Каналы 0-15: смещения нуля" open="0" color="191,191,255">
+	<param title="Смещение нуля канала 0 (В)" name="Bias0" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 1 (В)" name="Bias1" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 2 (В)" name="Bias2" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 3 (В)" name="Bias3" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 4 (В)" name="Bias4" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 5 (В)" name="Bias5" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 6 (В)" name="Bias6" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 7 (В)" name="Bias7" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 8 (В)" name="Bias8" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 9 (В)" name="Bias9" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 10 (В)" name="Bias10" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 11 (В)" name="Bias11" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 12 (В)" name="Bias12" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 13 (В)" name="Bias13" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 14 (В)" name="Bias14" default="0.0" type="spin-double"/>
+	<param title="Смещение нуля канала 15 (В)" name="Bias15" default="0.0" type="spin-double"/>
+</group>
+
+<!--
+	Источники сигнала каналов 0-15
+-->
+<group title="Каналы 0-15: Источники сигнала" open="0" color="191,255,255">
+	<param title="Источник для канала 0" name="InputSource0" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 1" name="InputSource1" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 2" name="InputSource2" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 3" name="InputSource3" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 4" name="InputSource4" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 5" name="InputSource5" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 6" name="InputSource6" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 7" name="InputSource7" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 8" name="InputSource8" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 9" name="InputSource9" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 10" name="InputSource10" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 11" name="InputSource11" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 12" name="InputSource12" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 13" name="InputSource13" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 14" name="InputSource14" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+	<param title="Источник для канала 15" name="InputSource15" type="list">
+	   <item val="0" descr="аттенюатор 1:1"/>
+	   <item val="1" descr="аттенюатор 1:2"/>
+	   <item val="2" descr="ЦАП"/>
+	   <item val="3" descr="земля"/>
+	</param>
+</group>
+
+<!--
+	Прочие параметры из [device0_adc1624x128]
+-->
+<group title="Прочие параметры из [device0_adc1624x128]" open="0" color="191,255,191">
+	<param name="MasterMode" type="list">
+		<item val="1" descr="всегда 1"/>
+	</param>
+	<param name="ReStart" type="list">
+		<item val="0" descr="всегда 0"/>
+	</param>
+	<param title="Включение претригера" name="IsPreTriggerMode" type="list">
+		<item val="0" descr="выключен"/>
+		<item val="1" descr="включен"/>
+	</param>
+	<param title="Количество отсчетов претригера" name="PreTriggerSamples" default="1" inc="1" type="spin-int" min="1"/>
+	<param name="CurrentDouble" type="list">
+		<item val="1" descr="всегда 1"/>
+	</param>
+</group>
+
+<!--
+	Параметры из [Option]
+-->
+<group title="Параметры из [Option]" open="0" color="255,191,191">
+	<param title="Имя службы" name="AdcServiceName"/>
+	<param title="Имя файла прошивки" name="PldFileName" type="file" />
+	<param title="Режим загрузки прошивки" name="isPldLoadAlways" type="list">
+		<item val="0" descr="загружать, если не загружена"/>
+		<item val="1" descr="загружать всегда при запуске"/>
+	</param>
+	<param title="Разрешение BusMaster" name="BusMasterEnable" type="list">
+		<item val="1" descr="всегда 1"/>
+	</param>
+	<param title="Циклический режим" name="Cycle" type="list">
+		<item val="1" descr="всегда 1"/>
+	</param>
+	<param title="Использование ОЗУ" name="DaqIntoMemory" type="list">
+		<item val="0" descr="всегда 0"/>
+	</param>
+	<param title="Формирование data.bin" name="IsWriteFile" type="list">
+		<item val="1" descr="всегда 1"/>
+	</param>
+	<param title="Количество отсчетов" name="SamplesPerChannel" type="list">
+		<item val="64"/>
+		<item val="128"/>
+		<item val="256"/>
+		<item val="512"/>
+		<item val="1024"/>
+		<item val="2048"/>
+		<item val="4096"/>
+		<item val="8192"/>
+		<item val="16384"/>
+		<item val="32768"/>
+		<item val="65536"/>
+		<item val="131072"/>
+	</param>
+	<param title="Количество отсчетов при сборе в ОЗУ" name="MemSamplesPerChan" type="list">
+		<item val="64"/>
+		<item val="128"/>
+		<item val="256"/>
+		<item val="512"/>
+		<item val="1024"/>
+		<item val="2048"/>
+		<item val="4096"/>
+		<item val="8192"/>
+		<item val="16384"/>
+		<item val="32768"/>
+		<item val="65536"/>
+		<item val="131072"/>
+	</param>
+	<param title="Составной буфер" name="IsSystemMemory" type="list">
+		<item val="0" descr="в пользовательской памяти"/>
+		<item val="1" descr="в системной памяти"/>
+	</param>
+</group>
+
+<!--
+	Прямая запись в файл
+-->
+<group title="Прямая запись в файл" open="0" color="255,191,191">
+	<param title="Имя файла" name="DirFileName"/>
+	<param title="Размер буфера" name="DirFileBufSize" type="list">
+		<item val="256"/>
+		<item val="512"/>
+		<item val="1024"/>
+		<item val="2048"/>
+		<item val="4096"/>
+		<item val="8192"/>
+		<item val="16384"/>
+		<item val="32768"/>
+		<item val="65536"/>
+		<item val="131072"/>
+	</param>
+	<param title="Количество буферов" name="DirNumBufWrite" default="1" inc="1" type="spin-int" min="1"/>
+</group>
+
+<!--
+	Стартовая синхронизация на базовом модуле
+-->
+<group title="Стартовая синхронизация на базовом модуле" open="1" color="255,191,255">
+	<param title="Источник старта на базовом модуле" name="StartBaseSource" type="list">
+		<item val="0" descr="программный"/>
+		<item val="7" descr="субмодуль"/>
+	</param>
+	<param title="Инверсия старта на базовом модуле" name="StartBaseInverting" type="list">
+		<item val="0" descr="нет"/>
+		<item val="1" descr="есть"/>
+	</param>
+	<param title="Режим старта" type="list" name="StartMode">
+		<item val="0" descr="потенциальный"/>
+		<item val="1" descr="триггерный"/>
+	</param>
+	<param title="Источник останова" type="list" name="StopSource">
+		<item val="0" descr="всегда 0"/>
+	</param>
+	<param title="Инверсия останова" type="list" name="StopInverting">
+		<item val="0" descr="нет"/>
+		<item val="1" descr="есть"/>
+	</param>
+</group>
+
+<!--
+	Управление работой АИКС
+-->
+<group title="Управление работой АИКС" open="1" color="191,255,255">
+	<param title="Комментарий" name="COMMENT"/>
+	<param title="Пояснение" name="AIKSINFO"/>
+	<param title="Номер программы examadc" type="list" name="CMDLINENO">
+		<item val="0" descr="основная"/>
+		<item val="2" descr="номер 2"/>
+		<item val="3" descr="номер 3"/>
+		<item val="4" descr="номер 4"/>
+	</param>
+	<param title="Автосмещение нуля" type="list" name="BIASAUTO">
+		<item val="0" descr="выключено"/>
+		<item val="1" descr="от пред. режима"/>
+		<item val="ключевоеслово" descr="включено"/>
+	</param>
+	<param title="Размер буфера автосмещения" type="list" name="BIASAUTOSIZE">
+		<item val="64"/>
+		<item val="128"/>
+		<item val="256"/>
+		<item val="512"/>
+		<item val="1024"/>
+		<item val="2048"/>
+		<item val="4096"/>
+		<item val="8192"/>
+		<item val="16384"/>
+		<item val="32768"/>
+		<item val="65536"/>
+		<item val="131072"/>
+	</param>
+</group>
+
+</settings>

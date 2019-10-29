@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+
+<!--
+	Базовый модуль AMBPCX, Субмодуль  ADM1612x1M
+-->
+
+<settings>
+
+<!-- [Options] -->
+
+<!--
+	Имя службы АЦП
+-->
+<param name="AdcServiceName" type="list" >
+	<item val="ADC1612X1M" />
+</param>
+
+<!--
+	файл прошивки ПЛИС для БМ AMBPCX
+-->
+<param name="PldFileName" type="list" >
+  <item val="ambpcx_v10_adm1612x1m.hex" />
+</param>
+
+<!--
+	Когда загружать прошивкy
+-->
+<param name="isPldLoadAlways" type="list" >
+  <item val="0" descr="если ПЛИС не загружена"/>
+  <item val="1" descr="всегда при запуске"/>
+</param>
+
+<!--
+	BusMasterEnable
+-->
+<param name="BusMasterEnable" type="list" >
+  <item val="1" descr="основной режим"/>
+  <item val="0" descr="для отладки"/>
+</param>
+
+<!--
+	Циклический режим
+-->
+<param name="Cycle" type="list" >
+  <item val="0" descr="однократный режим"/>
+  <item val="1" descr="циклический режим"/>
+</param>
+
+<!--
+	Для AMBPCD
+-->
+<param name="DaqIntoMemory" type="list" >
+  <item val="0"  descr="сбор данных в FIFO" />
+  <item val="1"  descr="сбор данных в DRAM (AMBPCD)" />
+</param>
+
+<!--
+	Запись в файл data.bin
+-->
+<param name="IsWriteFile" type="list" >
+  <item val="0"  descr="нет записи в data.bin" />
+  <item val="1"  descr="запись для ISVI" />
+  <item val="2"  descr="запись как есть" />
+</param>
+
+<!--
+	Число собираемых отсчётов на канал
+-->
+<param name="SamplesPerChannel" type="spin-int" min="0" inc="4096" />
+
+<!--
+	Тип памяти для стрима
+-->
+<param name="IsSystemMemory" type="list" >
+  <item val="0"  descr="разрывные блоки для стрима" />
+  <item val="1"  descr="непрерывные блоки для стрима" />
+</param>
+
+
+
+
+
+
+<!-- [device0_adc1612x1m0] -->
+
+<!--
+	Режим МАСТЕР
+-->
+<param name="MasterMode" type="list" >
+  <item val="1"  descr="всегда мастер" />
+</param>
+
+<!--
+	Маска каналов
+-->
+<param name="ChannelMask" type="list" >
+  <item val="0x1"  descr="1 канал" />
+  <item val="0x3"  descr="2 канала" />
+  <item val="0x7"  descr="3 канала" />
+  <item val="0xF"  descr="4 канала" />
+  <item val="0xFF"  descr="8 каналов" />
+  <item val="0xFFFF"  descr="16 каналов" />
+</param>
+
+<!--
+	Источник тактовой частоты
+-->
+<param name="" type="list" >
+  <item val="0"  descr="системный генератор" />
+  <item val="1"  descr="генератор 60 МГц" />
+  <item val="2"  descr="генератор 50 МГц" />
+  <item val="3"  descr="генератор на разъеме SDX" />
+</param>
+
+<!--
+	Значения источника тактовой частоты на разъеме SDX (Гц)
+-->
+<param name="BaseExternalClockValue" />
+
+<!--
+	Частота дискретизации (Гц)
+-->
+<param name="SamplingRate" type="spin-double" min="0" max="1000000" inc="1000" />
+
+<!--
+	Кодировка данных
+-->
+<param name="DataFormat" type="list" >
+  <item val="0"  descr="16 бит" />
+  <item val="1"  descr="8 бит" />
+  <item val="2"  descr="32 бит, плавающая точка" />
+  <item val="3"  descr="32 бит" />
+</param>
+
+<!--
+	Шкалы преобразования каналоа 0 и 1
+-->
+<param name="InputRange0_1" type="list" >
+  <item val="2.5" />
+  <item val="1.25" />
+  <item val="0.625" />
+  <item val="0.3125" />
+</param>
+
+<!--
+	Шкалы преобразования каналоа 2 и 3
+-->
+<param name="InputRange2_3" type="list" >
+  <item val="2.5" />
+  <item val="1.25" />
+  <item val="0.625" />
+  <item val="0.3125" />
+</param>
+
+<!--
+	Шкалы преобразования каналоа 4 и 5
+-->
+<param name="InputRange4_5" type="list" >
+  <item val="2.5" />
+  <item val="1.25" />
+  <item val="0.625" />
+  <item val="0.3125" />
+</param>
+
+<!--
+	Шкалы преобразования каналоа 6 и 7
+-->
+<param name="InputRange6_7" type="list" >
+  <item val="2.5" />
+  <item val="1.25" />
+  <item val="0.625" />
+  <item val="0.3125" />
+</param>
+
+<!--
+	Шкалы преобразования каналоа 8 и 9
+-->
+<param name="InputRange8_9" type="list" >
+  <item val="2.5" />
+  <item val="1.25" />
+  <item val="0.625" />
+  <item val="0.3125" />
+</param>
+
+<!--
+	Шкалы преобразования каналоа 10 и 11
+-->
+<param name="InputRange10_11" type="list" >
+  <item val="2.5" />
+  <item val="1.25" />
+  <item val="0.625" />
+  <item val="0.3125" />
+</param>
+
+<!--
+	Шкалы преобразования каналоа 12 и 13
+-->
+<param name="InputRange12_13" type="list" >
+  <item val="2.5" />
+  <item val="1.25" />
+  <item val="0.625" />
+  <item val="0.3125" />
+</param>
+
+<!--
+	Шкалы преобразования каналоа 14 и 15
+-->
+<param name="InputRange14_15" type="list" >
+  <item val="2.5" />
+  <item val="1.25" />
+  <item val="0.625" />
+  <item val="0.3125" />
+</param>
+
+<!--
+	Источник старта на базовом модуле
+-->
+<param name="StartBaseSource" type="list" >
+  <item val="0"  descr="программный" />
+  <item val="1"  descr="от канала0 (компаратор 0)" />
+  <item val="2"  descr="от SDX (компаратор 1)" />
+</param>
+
+<!--
+	Инверсия базового источника старта
+-->
+<param name="StartBaseInverting" type="list" >
+  <item val="0"  descr="" />
+  <item val="1"  descr="инверсия старта" />
+</param>
+
+<!--
+	
+-->
+<param name="" type="list" >
+  <item val=""  descr="" />
+</param>
+
+<!--
+	Тип старта
+-->
+<param name="StartMode" type="list" >
+  <item val="0"  descr="потенциальный старт" />
+  <item val="1"  descr="триггерный старт" />
+</param>
+
+<!--
+	Источник останова на базовом модуле
+-->
+<param name="StopSource" type="list" >
+  <item val="0"  descr="всегда программный останов" />
+</param>
+
+<!--
+	Инверсия базового источника останова
+-->
+<param name="StopInverting" type="list" >
+  <item val="0"  descr="" />
+  <item val="1"  descr="инверсия останова" />
+</param>
+
+<!--
+	
+-->
+<param name="ReStart" type="list" >
+  <item val="0"  descr="всегда 0" />
+</param>
+
+<!--
+	Порог компаратора 1 при старте от разъема SDX (Вольт)
+-->
+<param name="ComparatorThresholdSDX" type="spin-double" min="-2.5" max="2.5" inc="0.1" />
+
+  <!--
+	Порог компаратора 0 при старте от канала 0 (Вольт)
+-->
+  <param name="ComparatorThresholdCHAN0" type="spin-double" min="-2.5" max="2.5" inc="0.1" />
+
+</settings>
